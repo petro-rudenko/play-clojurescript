@@ -11,11 +11,11 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 libraryDependencies ++= Seq(
   "args4j" % "args4j" % "2.0.25",
   "com.google.protobuf" % "protobuf-java" % "2.5.0",
-  "org.clojure" % "clojure" % "1.5.1",
-  "org.clojure" % "clojurescript" % "0.0-1934"
+  "org.clojure" % "clojure" % "1.6.0",
+  "org.clojure" % "clojurescript" % "0.0-2342"
 )
 
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.2.0")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.0")
 
 publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
 

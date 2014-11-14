@@ -1,10 +1,10 @@
-# play-clojurescript - ClojureScript to JavaScript compiler for Play 2.2
+# play-clojurescript - ClojureScript to JavaScript compiler for Play 2.3
 
 ## About
 
 This plugin is initially based on [play-clojurescript](https://bitbucket.org/jmhofer/play-clojurescript). 
 
-play-clojurescript is a [ClojureScript](https://github.com/clojure/clojurescript) 'compiled asset plugin' for Play 2.2.x
+play-clojurescript is a [ClojureScript](https://github.com/clojure/clojurescript) 'compiled asset plugin' for Play 2.3.x
 It is similar to the other built-in compilers. ClojureScript files placed under
 `app/assets` will be compiled to JavaScript files.
 
@@ -12,7 +12,7 @@ It is similar to the other built-in compilers. ClojureScript files placed under
 
 Add the plugin and the repository to your application's `project/plugins.sbt`:
 
-    addSbtPlugin("io.github.petro-rudenko" % "play-clojurescript" % "0.0.1")
+    addSbtPlugin("io.github.petro-rudenko" % "play-clojurescript" % "0.0.2")
 
 This adds the ClojureScript asset compiler to your Play project. `*.cljs` files beneath `app/assets` 
 will then be automatically compiled to `*.js` and `*.min.js` files. Files starting with 

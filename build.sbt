@@ -17,6 +17,37 @@ libraryDependencies ++= Seq(
 
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.0")
 
-publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
 
 publishMavenStyle := true
+
+publishArtifact in Test := false
+
+pomIncludeRepository := { _ => false }
+
+pomExtra := (
+  <url>https://github.com/petro-rudenko/play-clojurescript</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License - v1.0</name>
+      <url>http://www.eclipse.org/org/documents/epl-v10.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>git@github.com:petro-rudenko/play-clojurescript.git</url>
+    <connection>scm:git:git@github.com:petro-rudenko/play-clojurescript.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>petro-rudenko</id>
+      <name>Peter Rudenko</name>
+      <url>https://twitter.com/peter_rud</url>
+    </developer>
+  </developers>)

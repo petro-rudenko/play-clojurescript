@@ -6,7 +6,7 @@ import play.PlayExceptions._
 import sbt._
 
 
-object ClojureScriptCompiler {
+object ClojurescriptCompiler {
   val out = IO.createTemporaryDirectory
 
   def compile(src: File, options: Seq[String]): (String, Option[String], Seq[File]) = {
@@ -38,7 +38,6 @@ object ClojureScriptCompiler {
   private def compilePlainOptions: clojure.lang.IPersistentMap = {
     RT.map(
       Keyword intern "output-dir", out.absolutePath,
-      Keyword intern "output-to", null,
       Keyword intern "optimizations", Keyword intern "simple",
       Keyword intern "pretty-print", java.lang.Boolean.TRUE)
   }
@@ -49,7 +48,6 @@ object ClojureScriptCompiler {
   private def compileAdvancedOptions: clojure.lang.IPersistentMap = {
     RT.map(
       Keyword intern "output-dir", out.absolutePath,
-      Keyword intern "output-to", null,
       Keyword intern "optimizations", Keyword intern "advanced",
       Keyword intern "pretty-print", java.lang.Boolean.FALSE)
   }
